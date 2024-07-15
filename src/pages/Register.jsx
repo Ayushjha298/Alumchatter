@@ -94,7 +94,7 @@ export default function Register() {
         <div className="content-wrapper">
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>BlinkChat</h1>
+            <h1>AlumChatter</h1>
           </div>
           <form action="" onSubmit={(event) => handleSubmit(event)}>
             <input
