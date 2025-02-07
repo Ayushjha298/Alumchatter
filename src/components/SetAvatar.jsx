@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { setAvatarRoute } from "../utils/APIRoutes";
 
 export default function SetAvatar() {
-  const api = `https://api.multiavatar.com/4645646`;
+  const api = `https://api.dicebear.com/7.x/adventurer/svg?seed=`;
   const navigate = useNavigate();
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -60,8 +60,9 @@ export default function SetAvatar() {
     const fetchAvatars = async () => {
       const data = [];
       for (let i = 0; i < 4; i++) {
-        const image = await axios.get(`${api}/${Math.round(Math.random() * 1000)}`);
-        const buffer = new Buffer(image.data);
+        const randomSeed = Math.floor(Math.random() * 1000); // Unique seed for each avatar
+        const image = await axios.get(`${api}${randomSeed}`);
+        const buffer = new Buffer(image.data); // Correct way to handle binary data
         data.push(buffer.toString("base64"));
       }
       setAvatars(data);
@@ -85,7 +86,7 @@ export default function SetAvatar() {
             {avatars.map((avatar, index) => {
               return (
                 <div
-                  key={avatar}
+                  key={index}
                   className={`avatar ${selectedAvatar === index ? "selected" : ""}`}
                   onClick={() => setSelectedAvatar(index)}
                 >
