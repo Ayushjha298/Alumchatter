@@ -24,6 +24,7 @@ AlumChatter is a real-time chat application It was designed specifically for col
 
 ![Chatpage](image2.png)
 
+
 ## Contact
 
 For any questions or feedback, please reach out to [ayushjha298@gmail.com](mailto:ayushjha298@gmail.com).
